@@ -1,8 +1,7 @@
 FROM golang:1.24 AS build
 
 WORKDIR /go/src/app
-COPY main.go .
-COPY go.mod .
+COPY . .
 
 RUN go mod tidy
 
