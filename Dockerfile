@@ -1,9 +1,10 @@
 FROM golang:1.24 AS build
 
 WORKDIR /go/src/app
-COPY . .
+COPY main.go .
+COPY go.mod .
 
-RUN go mod download
+RUN go mod tidy
 
 RUN CGO_ENABLED=0 go build -ldflags "-w -s" -o /go/bin/app
 
