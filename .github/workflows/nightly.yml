@@ -1,0 +1,22 @@
+---
+name: Nightly Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: "docker build . --tag ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:nightly --tag ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:${{ github.sha }}"
+      - name: Log in to registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Push image
+        run: "docker push --all-tags ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter"
