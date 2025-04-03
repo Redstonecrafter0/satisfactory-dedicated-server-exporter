@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build image
-        run: "docker build . --tag ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:latest --tag ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:${{ github.ref_name }} --tag ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:${{ github.sha }}"
+        run: "docker build . --tag ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:latest --tag ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:${{ github.ref_name }}"
       - name: Log in to registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Push image

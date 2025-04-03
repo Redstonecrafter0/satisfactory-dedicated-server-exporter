@@ -7,7 +7,7 @@
 ## Usage
 ### docker run
 ```shell
-docker run -p 8080:8080 -e SDSE_HOST=ip_or_hostname -e SDSE_PORT=7777 -e SDSE_TOKEN=token_from_satisfactory_dedicated_server ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:latest
+docker run -p 8080:8080 -e SDSE_HOST=ip_or_hostname -e SDSE_TOKEN=token_from_satisfactory_dedicated_server ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:latest
 ```
 
 ### docker compose
@@ -19,8 +19,6 @@ services:
       - 8080:8080
     environment:
       - SDSE_HOST=ip_or_hostname
-      - SDSE_INSECURE=1
-      - SDSE_PORT=7777
       - SDSE_TOKEN=token_from_satisfactory_dedicated_server
 ```
 
