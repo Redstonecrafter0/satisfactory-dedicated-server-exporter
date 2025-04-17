@@ -17,6 +17,8 @@ services:
     image: ghcr.io/redstonecrafter0/satisfactory-dedicated-server-exporter:latest
     ports:
       - 8080:8080
+    volumes:
+      - "/etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro" # only needed if you got your own CA
     environment:
       - SDSE_HOST=ip_or_hostname
       - SDSE_TOKEN=token_from_satisfactory_dedicated_server
